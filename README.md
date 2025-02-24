@@ -1,4 +1,4 @@
-# class_based_project
+
 # Foydalanuvchilarni CSV fayldan o'qish va tahlil qilish
 
 Ushbu loyiha CSV faylidan foydalanuvchilar haqidagi ma'lumotlarni o'qish va tahlil qilish uchun Python dasturini o'z ichiga oladi. Dastur `Users` klassini taqdim etadi, u orqali foydalanuvchilar haqidagi turli ma'lumotlarni olish mumkin.
