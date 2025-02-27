@@ -6,7 +6,15 @@ class Users(object):
         
         # open file 
         # Read and parse the CSV file
-        pass
+        self.file_path = file_path
+        self.users = self._read_csv()
+    def _read_csv(self):
+        users = []
+        file=open(self.file_path, mode='r')
+        reader = csv.DictReader(file)
+        for row in reader:
+                users.append(row)
+        return users
 
     def first_name_all(slef):
 
@@ -14,7 +22,7 @@ class Users(object):
 
         # retrun first_name all list type
         
-        pass
+        return [user['first_name'] for user in self.users]
 
     def last_name_all(slef):
 
@@ -22,7 +30,7 @@ class Users(object):
 
         # retrun last_name all list type
         
-        pass
+        return [user['last_name'] for user in self.users]
 
     def gender_male_count(slef):
 
@@ -30,7 +38,7 @@ class Users(object):
 
         # retrun gender mael count 
         
-        pass
+        return sum(1 for user in self.users if user['gender'].lower() == 'male')
 
     def gender_female_count(slef):
 
@@ -38,7 +46,7 @@ class Users(object):
 
         # retrun gender femael count 
         
-        pass
+        return sum(1 for user in self.users if user['gender'].lower() == 'female')
 
     def get_all_domen_name(slef):
 
@@ -48,7 +56,7 @@ class Users(object):
 
         # sample: username@gmail.com -> domen_name = 'gmail'
 
-        pass
+        return list(set(user['email'].split('@')[-1] for user in self.users))
 
     def get_job(slef):
 
@@ -56,11 +64,14 @@ class Users(object):
 
         # Return answer
 
-        pass
+        return list(set(user['job'] for user in self.users))
 
     def get_one_user(self, id: int):
 
         # Return the user ID data equal to the id value.
-        pass
+        for user in self.users:
+            if int(user['id']) == user_id:
+                return user
+        return None
     
 
